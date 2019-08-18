@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter.onCreate()
-
+        pager.adapter = MainPagerAdapter(supportFragmentManager)
     }
 
     override fun showToast() {
@@ -32,4 +32,5 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             .apply(RequestOptions.circleCropTransform())
             .into(imageView)
     }
+
 }
