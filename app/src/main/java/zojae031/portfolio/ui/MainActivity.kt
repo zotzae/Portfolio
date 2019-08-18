@@ -3,6 +3,7 @@ package zojae031.portfolio.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_main.*
 import zojae031.portfolio.R
 import zojae031.portfolio.presentation.MainContract
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         Glide.with(this@MainActivity)
             .load("https://avatars2.githubusercontent.com/u/31091115?s=400&u=6db0ee4cb9b8a82cef9fe3a4196b437dc537339d&v=4")
             .centerCrop()
+            .apply(RequestOptions.circleCropTransform())
             .into(imageView)
     }
 }
