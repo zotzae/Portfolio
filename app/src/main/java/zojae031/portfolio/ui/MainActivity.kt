@@ -1,7 +1,9 @@
 package zojae031.portfolio.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,12 +19,31 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //TODO Error xml Indicator 생성 오류!!!! 해결 요망
         presenter.onCreate()
-        pager.adapter = MainPagerAdapter(supportFragmentManager)
+        indicator.createDotPanel(3, R.drawable.indicator_off, R.drawable.indicator_on, 0)
+        with(pager) {
+            adapter = MainPagerAdapter(supportFragmentManager)
+            addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                override fun onPageScrollStateChanged(state: Int) {
+
+                }
+
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+                }
+
+                override fun onPageSelected(position: Int) {
+                    indicator.selectDot(position)
+                }
+
+            })
+        }
+
     }
 
-    override fun showToast() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showToast(text: String) {
+        Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
     }
 
     override fun showUserImage() {
