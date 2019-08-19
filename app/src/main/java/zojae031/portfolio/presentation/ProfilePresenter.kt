@@ -14,7 +14,7 @@ class ProfilePresenter(private val view: ProfileContract.View, private val repos
             .getBasicInformation()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { data ->
-                Log.e("json",Gson().toJson(data))
+                Log.e("json", Gson().toJson(data))
             }
     }
 

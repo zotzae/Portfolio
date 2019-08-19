@@ -1,11 +1,12 @@
 package zojae031.portfolio.presentation.contract
 
 interface BaseContract {
-    interface View{
-        fun showToast(text:String)
+    interface View {
+        fun showToast(text: String)
 
     }
-    interface Presenter{
+
+    interface Presenter {
         fun onCreate()
     }
 }

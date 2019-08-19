@@ -23,7 +23,14 @@ class Indicator(private val mContext: Context, private val attrs: AttributeSet) 
         this.selectedCircle = selectCircle
 
         for (i in 0 until count) {
-            imageDot.add(ImageView(mContext,attrs).apply { setPadding(padding.toInt(), padding.toInt(), padding.toInt(), padding.toInt()) })
+            imageDot.add(ImageView(mContext, attrs).apply {
+                setPadding(
+                    padding.toInt(),
+                    padding.toInt(),
+                    padding.toInt(),
+                    padding.toInt()
+                )
+            })
             this.addView(imageDot[i])
         }
         selectDot(position)

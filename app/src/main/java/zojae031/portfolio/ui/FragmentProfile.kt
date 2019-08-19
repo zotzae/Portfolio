@@ -10,12 +10,12 @@ import zojae031.portfolio.R
 import zojae031.portfolio.data.RepositoryImpl
 import zojae031.portfolio.data.datasource.LocalDataSourceImpl
 import zojae031.portfolio.data.datasource.RemoteDataSourceImpl
-import zojae031.portfolio.presentation.contract.ProfileContract
 import zojae031.portfolio.presentation.ProfilePresenter
+import zojae031.portfolio.presentation.contract.ProfileContract
 
 class FragmentProfile : Fragment(), ProfileContract.View {
     private val presenter by lazy {
-        ProfilePresenter(this@FragmentProfile,RepositoryImpl.getInstance(LocalDataSourceImpl,RemoteDataSourceImpl))
+        ProfilePresenter(this@FragmentProfile, RepositoryImpl.getInstance(LocalDataSourceImpl, RemoteDataSourceImpl))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

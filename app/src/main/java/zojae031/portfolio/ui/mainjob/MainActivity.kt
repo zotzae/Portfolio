@@ -8,8 +8,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_main.*
 import zojae031.portfolio.R
-import zojae031.portfolio.presentation.contract.MainContract
 import zojae031.portfolio.presentation.MainPresenter
+import zojae031.portfolio.presentation.contract.MainContract
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
