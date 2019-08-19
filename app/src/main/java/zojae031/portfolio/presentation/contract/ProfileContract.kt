@@ -1,7 +1,13 @@
 package zojae031.portfolio.presentation.contract
 
-interface ProfileContract : BaseContract {
-    interface View : BaseContract.View
+import zojae031.portfolio.data.dao.BasicDao
 
-    interface Presenter : BaseContract.Presenter
+interface ProfileContract : BaseContract {
+    interface View : BaseContract.View {
+        fun showBasicInformation(data: BasicDao)
+    }
+
+    interface Presenter : BaseContract.Presenter{
+
+    }
 }
