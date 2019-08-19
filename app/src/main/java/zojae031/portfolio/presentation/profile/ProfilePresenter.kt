@@ -1,11 +1,10 @@
-package zojae031.portfolio.presentation
+package zojae031.portfolio.presentation.profile
 
 import com.google.gson.JsonParser
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import zojae031.portfolio.data.Repository
 import zojae031.portfolio.data.dao.BasicDao
-import zojae031.portfolio.presentation.contract.ProfileContract
 
 class ProfilePresenter(private val view: ProfileContract.View, private val repository: Repository) :
     ProfileContract.Presenter {

@@ -1,8 +1,7 @@
-package zojae031.portfolio.presentation
+package zojae031.portfolio.presentation.main
 
-import zojae031.portfolio.presentation.contract.MainContract
-
-class MainPresenter(private val view: MainContract.View) : MainContract.Presenter {
+class MainPresenter(private val view: MainContract.View) :
+    MainContract.Presenter {
     override fun onCreate() {
         view.showUserImage()
     }

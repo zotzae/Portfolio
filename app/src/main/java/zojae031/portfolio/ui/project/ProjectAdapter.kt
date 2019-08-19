@@ -1,4 +1,4 @@
-package zojae031.portfolio.ui
+package zojae031.portfolio.ui.project
 
 import android.view.View
 import android.view.ViewGroup

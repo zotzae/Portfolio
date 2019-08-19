@@ -1,8 +1,8 @@
 package zojae031.portfolio.data
 
 import io.reactivex.Single
-import zojae031.portfolio.data.datasource.LocalDataSource
-import zojae031.portfolio.data.datasource.RemoteDataSource
+import zojae031.portfolio.data.datasource.local.LocalDataSource
+import zojae031.portfolio.data.datasource.remote.RemoteDataSource
 
 class RepositoryImpl private constructor(
     private val localDataSource: LocalDataSource,

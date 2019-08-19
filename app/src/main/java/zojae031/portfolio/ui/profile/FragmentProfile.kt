@@ -1,4 +1,4 @@
-package zojae031.portfolio.ui
+package zojae031.portfolio.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,14 +10,19 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 import zojae031.portfolio.R
 import zojae031.portfolio.data.RepositoryImpl
 import zojae031.portfolio.data.dao.BasicDao
-import zojae031.portfolio.data.datasource.LocalDataSourceImpl
-import zojae031.portfolio.data.datasource.RemoteDataSourceImpl
-import zojae031.portfolio.presentation.ProfilePresenter
-import zojae031.portfolio.presentation.contract.ProfileContract
+import zojae031.portfolio.data.datasource.local.LocalDataSourceImpl
+import zojae031.portfolio.data.datasource.remote.RemoteDataSourceImpl
+import zojae031.portfolio.presentation.profile.ProfilePresenter
+import zojae031.portfolio.presentation.profile.ProfileContract
 
 class FragmentProfile : Fragment(), ProfileContract.View {
     private val presenter by lazy {
-        ProfilePresenter(this@FragmentProfile, RepositoryImpl.getInstance(LocalDataSourceImpl, RemoteDataSourceImpl))
+        ProfilePresenter(
+            this@FragmentProfile, RepositoryImpl.getInstance(
+                LocalDataSourceImpl,
+                RemoteDataSourceImpl
+            )
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

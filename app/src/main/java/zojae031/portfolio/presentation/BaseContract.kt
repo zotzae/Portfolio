@@ -1,4 +1,4 @@
-package zojae031.portfolio.presentation.contract
+package zojae031.portfolio.presentation
 
 interface BaseContract {
     interface View {

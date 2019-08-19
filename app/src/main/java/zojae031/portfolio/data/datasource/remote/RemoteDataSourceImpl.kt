@@ -1,4 +1,4 @@
-package zojae031.portfolio.data.datasource
+package zojae031.portfolio.data.datasource.remote
 
 import io.reactivex.Single
 import io.reactivex.SingleOnSubscribe
