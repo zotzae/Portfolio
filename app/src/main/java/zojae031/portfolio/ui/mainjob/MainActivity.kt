@@ -1,4 +1,4 @@
-package zojae031.portfolio.ui
+package zojae031.portfolio.ui.mainjob
 
 import android.os.Bundle
 import android.widget.Toast
@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_main.*
 import zojae031.portfolio.R
-import zojae031.portfolio.presentation.MainContract
+import zojae031.portfolio.presentation.contract.MainContract
 import zojae031.portfolio.presentation.MainPresenter
 
 class MainActivity : AppCompatActivity(), MainContract.View {
