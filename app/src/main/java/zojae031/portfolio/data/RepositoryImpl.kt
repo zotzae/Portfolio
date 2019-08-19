@@ -10,7 +10,13 @@ class RepositoryImpl private constructor(
 ) : Repository {
 
     override fun getBasicInformation(): Single<String> {
-        return remoteDataSource.getBasicInformation()
+        /*
+        1. 네트워크 연결 x -> 로컬
+        2. 리모트 != 로컬 -> 로컬 update
+        3. 로컬 x -> 리모트
+        */
+        return localDataSource.getBasicInformation()
+//        return remoteDataSource.getBasicInformation()
     }
 
     companion object {

@@ -4,7 +4,7 @@ import com.google.gson.JsonParser
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import zojae031.portfolio.data.Repository
-import zojae031.portfolio.data.dao.BasicDao
+import zojae031.portfolio.data.dao.BasicEntity
 
 class ProfilePresenter(private val view: ProfileContract.View, private val repository: Repository) :
     ProfileContract.Presenter {
@@ -19,7 +19,7 @@ class ProfilePresenter(private val view: ProfileContract.View, private val repos
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { data ->
                 JsonParser().parse(data).asJsonObject.apply {
-                    BasicDao(
+                    BasicEntity(
                         get("name").asString,
                         get("age").asString,
                         get("university").asString,

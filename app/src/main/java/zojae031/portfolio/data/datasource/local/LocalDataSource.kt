@@ -1,3 +1,7 @@
 package zojae031.portfolio.data.datasource.local
 
-interface LocalDataSource
+import io.reactivex.Single
+
+interface LocalDataSource{
+    fun getBasicInformation(): Single<String>
+}

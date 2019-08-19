@@ -1,9 +1,10 @@
 package zojae031.portfolio.data.dao
 
-data class BasicDao(
-    val name: String,
-    val age: String,
-    val university: String,
-    val major: String,
-    val military: String
-)
+import androidx.room.Dao
+import androidx.room.Query
+
+@Dao
+interface BasicDao : BaseDao<BasicEntity> {
+    @Query("Select * from BasicEntity")
+    fun select(): List<BasicEntity>
+}
