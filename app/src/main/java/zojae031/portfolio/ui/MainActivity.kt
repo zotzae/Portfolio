@@ -19,9 +19,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //TODO Error xml Indicator 생성 오류!!!! 해결 요망
         presenter.onCreate()
+
         indicator.createDotPanel(3, R.drawable.indicator_off, R.drawable.indicator_on, 0)
+
         with(pager) {
             adapter = MainPagerAdapter(supportFragmentManager)
             addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
