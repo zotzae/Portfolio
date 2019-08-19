@@ -13,7 +13,7 @@ object RemoteDataSourceImpl : RemoteDataSource {
     )
 
     @Volatile
-    override var isDirty: MutableList<Boolean> = mutableListOf(false)
+    override var isDirty: MutableList<Boolean> = mutableListOf(false, false, false)
 
     override fun getBasicInformation(): Single<String> {
         return parseUrl(0)
@@ -35,7 +35,4 @@ object RemoteDataSourceImpl : RemoteDataSource {
 
         }).subscribeOn(Schedulers.io())
 
-    enum class URL {
-
-    }
 }

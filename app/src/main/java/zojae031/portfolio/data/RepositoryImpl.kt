@@ -30,6 +30,10 @@ class RepositoryImpl private constructor(
         }
     }
 
+    override fun getCompetitionInformation(): Single<String> {
+        return remoteDataSource.getCompetitionInformation()
+    }
+
     companion object {
         private var INSTANCE: RepositoryImpl? = null
         fun getInstance(

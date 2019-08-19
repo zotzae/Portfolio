@@ -1,6 +1,12 @@
 package zojae031.portfolio.project
 
-class ProjectPresenter(private val view: ProjectContract.View) : ProjectContract.Presenter {
+import com.google.gson.JsonParser
+import io.reactivex.android.schedulers.AndroidSchedulers
+import zojae031.portfolio.data.Repository
+import zojae031.portfolio.data.dao.CompetitionEntity
+
+class ProjectPresenter(private val view: ProjectContract.View, private val repository: Repository) :
+    ProjectContract.Presenter {
     private lateinit var adapterView: ProjectAdapterContract.View
     private lateinit var adapterModel: ProjectAdapterContract.Model
 
@@ -14,7 +20,24 @@ class ProjectPresenter(private val view: ProjectContract.View) : ProjectContract
     }
 
     override fun onResume() {
-
+        repository
+            .getCompetitionInformation()
+            .map { data ->
+                JsonParser().parse(data).asJsonObject.apply {
+                    return@map CompetitionEntity(
+                        get("image").asString,
+                        get("name").asString,
+                        get("prize").asString,
+                        get("text").asString,
+                        get("competition").asString
+                    )
+                }
+            }.observeOn(AndroidSchedulers.mainThread())
+            .subscribe { enitity ->
+                adapterView.clearList()
+                adapterView.updateList(listOf(enitity as CompetitionEntity))
+                adapterModel.notifyAdapter()
+            }
     }
 
     override fun onPause() {

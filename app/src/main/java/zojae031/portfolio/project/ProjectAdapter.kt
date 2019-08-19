@@ -46,7 +46,6 @@ class ProjectAdapter : RecyclerView.Adapter<ProjectAdapter.Holder>(), ProjectAda
             Glide
                 .with(itemView.context)
                 .load(lists[position].image)
-                .centerCrop()
                 .into(image)
             name.text = lists[position].name
             prize.text = lists[position].prize
