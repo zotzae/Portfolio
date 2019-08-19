@@ -8,6 +8,8 @@ import org.jsoup.Jsoup
 
 object RemoteDataSourceImpl : RemoteDataSource {
     private const val basicInfoUrl = "https://github.com/zojae031/Portfolio/issues/1"
+    @Volatile
+    override var isDirty = false
 
     override fun getBasicInformation(): Single<String> {
         return Single.create(SingleOnSubscribe<String> {
@@ -15,6 +17,7 @@ object RemoteDataSourceImpl : RemoteDataSource {
                 .method(Connection.Method.GET)
                 .execute()
                 .apply {
+                    isDirty = true
                     it.onSuccess(this.parse().select(".d-block").select("p").text())
                 }
 

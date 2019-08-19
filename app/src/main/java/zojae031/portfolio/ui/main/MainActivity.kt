@@ -8,8 +8,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_main.*
 import zojae031.portfolio.R
-import zojae031.portfolio.presentation.main.MainPresenter
 import zojae031.portfolio.presentation.main.MainContract
+import zojae031.portfolio.presentation.main.MainPresenter
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun showUserImage() {
         Glide.with(this@MainActivity)
             .load("https://avatars2.githubusercontent.com/u/31091115?s=400&u=6db0ee4cb9b8a82cef9fe3a4196b437dc537339d&v=4")
+            .error(R.drawable.picture)
             .centerCrop()
             .apply(RequestOptions.circleCropTransform())
             .into(imageView)

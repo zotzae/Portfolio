@@ -8,7 +8,5 @@ interface ProfileContract : BaseContract {
         fun showBasicInformation(data: BasicEntity)
     }
 
-    interface Presenter : BaseContract.Presenter {
-
-    }
+    interface Presenter : BaseContract.Presenter
 }

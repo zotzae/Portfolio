@@ -1,29 +1,44 @@
 package zojae031.portfolio.data
 
+import android.net.ConnectivityManager
 import io.reactivex.Single
+import zojae031.portfolio.data.dao.BasicEntity
 import zojae031.portfolio.data.datasource.local.LocalDataSource
 import zojae031.portfolio.data.datasource.remote.RemoteDataSource
 
 class RepositoryImpl private constructor(
     private val localDataSource: LocalDataSource,
-    private val remoteDataSource: RemoteDataSource
+    private val remoteDataSource: RemoteDataSource,
+    private val manager: ConnectivityManager
 ) : Repository {
 
     override fun getBasicInformation(): Single<String> {
-        /*
-        1. 네트워크 연결 x -> 로컬
-        2. 리모트 != 로컬 -> 로컬 update
-        3. 로컬 x -> 리모트
-        */
-        return localDataSource.getBasicInformation()
-//        return remoteDataSource.getBasicInformation()
+        return if (manager.activeNetwork != null) {//네트워크 연결상태 on
+            if (remoteDataSource.isDirty) {//캐시가 지저분하면 로컬에서 땡겨옴
+                localDataSource.getBasicInformation()
+            } else {
+                remoteDataSource.getBasicInformation()
+            }
+        } else {//네트워크 연결상태 off
+            localDataSource.getBasicInformation()
+        }
+    }
+
+    override fun insertBasicInformation(data: BasicEntity) {
+        if (remoteDataSource.isDirty) { //캐시가 더러울때만 저장
+            localDataSource.insertBasicInformation(data)
+        }
     }
 
     companion object {
         private var INSTANCE: RepositoryImpl? = null
-        fun getInstance(localDataSource: LocalDataSource, remoteDataSource: RemoteDataSource): RepositoryImpl {
+        fun getInstance(
+            localDataSource: LocalDataSource,
+            remoteDataSource: RemoteDataSource,
+            manager: ConnectivityManager
+        ): RepositoryImpl {
             if (INSTANCE == null) {
-                INSTANCE = RepositoryImpl(localDataSource, remoteDataSource)
+                INSTANCE = RepositoryImpl(localDataSource, remoteDataSource, manager)
             }
             return INSTANCE!!
         }

@@ -1,5 +1,7 @@
 package zojae031.portfolio.ui.profile
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +22,8 @@ class FragmentProfile : Fragment(), ProfileContract.View {
         ProfilePresenter(
             this@FragmentProfile, RepositoryImpl.getInstance(
                 LocalDataSourceImpl.getInstance(context!!),
-                RemoteDataSourceImpl
+                RemoteDataSourceImpl,
+                context!!.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             )
         )
     }

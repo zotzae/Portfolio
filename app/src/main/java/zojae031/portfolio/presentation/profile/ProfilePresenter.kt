@@ -16,18 +16,30 @@ class ProfilePresenter(private val view: ProfileContract.View, private val repos
     override fun onResume() {
         repository
             .getBasicInformation()
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { data ->
+            .map { data ->
                 JsonParser().parse(data).asJsonObject.apply {
-                    BasicEntity(
+                    return@map BasicEntity(
                         get("name").asString,
                         get("age").asString,
                         get("university").asString,
                         get("major").asString,
                         get("military").asString
-                    ).also { view.showBasicInformation(it) }
+                    )
                 }
-            }.also { compositeDisposable.add(it) }
+            }
+            .doOnSuccess { entity ->
+                repository.insertBasicInformation(entity as BasicEntity)
+            }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ entity ->
+                view.showBasicInformation(entity as BasicEntity)
+
+            }, { t ->
+                view.showToast(t.message.toString())
+            }
+            ).also { compositeDisposable.add(it) }
+
+
     }
 
     override fun onPause() {
