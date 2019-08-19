@@ -1,4 +1,4 @@
-package zojae031.portfolio.ui.profile
+package zojae031.portfolio.profile
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -14,13 +14,11 @@ import zojae031.portfolio.data.RepositoryImpl
 import zojae031.portfolio.data.dao.BasicEntity
 import zojae031.portfolio.data.datasource.local.LocalDataSourceImpl
 import zojae031.portfolio.data.datasource.remote.RemoteDataSourceImpl
-import zojae031.portfolio.presentation.profile.ProfileContract
-import zojae031.portfolio.presentation.profile.ProfilePresenter
 
-class FragmentProfile : Fragment(), ProfileContract.View {
+class ProfileFragment : Fragment(), ProfileContract.View {
     private val presenter by lazy {
         ProfilePresenter(
-            this@FragmentProfile, RepositoryImpl.getInstance(
+            this@ProfileFragment, RepositoryImpl.getInstance(
                 LocalDataSourceImpl.getInstance(context!!),
                 RemoteDataSourceImpl,
                 context!!.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

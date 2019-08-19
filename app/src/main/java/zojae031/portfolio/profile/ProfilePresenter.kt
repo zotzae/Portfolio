@@ -1,4 +1,4 @@
-package zojae031.portfolio.presentation.profile
+package zojae031.portfolio.profile
 
 import com.google.gson.JsonParser
 import io.reactivex.android.schedulers.AndroidSchedulers

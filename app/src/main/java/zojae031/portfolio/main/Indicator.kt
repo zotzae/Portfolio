@@ -1,4 +1,4 @@
-package zojae031.portfolio.ui.main
+package zojae031.portfolio.main
 
 
 import android.content.Context

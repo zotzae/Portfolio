@@ -14,7 +14,7 @@ class RepositoryImpl private constructor(
 
     override fun getBasicInformation(): Single<String> {
         return if (manager.activeNetwork != null) {//네트워크 연결상태 on
-            if (remoteDataSource.isDirty) {//캐시가 지저분하면 로컬에서 땡겨옴
+            if (remoteDataSource.isDirty[0]) {//캐시가 지저분하면 로컬에서 땡겨옴
                 localDataSource.getBasicInformation()
             } else {
                 remoteDataSource.getBasicInformation()
@@ -25,7 +25,7 @@ class RepositoryImpl private constructor(
     }
 
     override fun insertBasicInformation(data: BasicEntity) {
-        if (remoteDataSource.isDirty) { //캐시가 더러울때만 저장
+        if (remoteDataSource.isDirty[0]) { //캐시가 더러울때만 저장
             localDataSource.insertBasicInformation(data)
         }
     }

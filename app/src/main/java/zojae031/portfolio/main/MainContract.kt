@@ -1,6 +1,6 @@
-package zojae031.portfolio.presentation.main
+package zojae031.portfolio.main
 
-import zojae031.portfolio.presentation.BaseContract
+import zojae031.portfolio.BaseContract
 
 interface MainContract : BaseContract {
     interface View : BaseContract.View {

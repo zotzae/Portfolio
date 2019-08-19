@@ -7,21 +7,35 @@ import org.jsoup.Connection
 import org.jsoup.Jsoup
 
 object RemoteDataSourceImpl : RemoteDataSource {
-    private const val basicInfoUrl = "https://github.com/zojae031/Portfolio/issues/1"
+    private val urlList = listOf(
+        "https://github.com/zojae031/Portfolio/issues/1",
+        "https://github.com/zojae031/Portfolio/issues/2"
+    )
+
     @Volatile
-    override var isDirty = false
+    override var isDirty: MutableList<Boolean> = mutableListOf(false)
 
     override fun getBasicInformation(): Single<String> {
-        return Single.create(SingleOnSubscribe<String> {
-            Jsoup.connect(basicInfoUrl)
+        return parseUrl(0)
+    }
+
+    override fun getCompetitionInformation(): Single<String> {
+        return parseUrl(1)
+    }
+
+    private fun parseUrl(idx: Int): Single<String> =
+        Single.create(SingleOnSubscribe<String> {
+            Jsoup.connect(urlList[idx])
                 .method(Connection.Method.GET)
                 .execute()
                 .apply {
-                    isDirty = true
+                    isDirty[idx] = true
                     it.onSuccess(this.parse().select(".d-block").select("p").text())
                 }
 
         }).subscribeOn(Schedulers.io())
-    }
 
+    enum class URL {
+
+    }
 }

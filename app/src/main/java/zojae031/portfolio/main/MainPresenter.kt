@@ -1,4 +1,4 @@
-package zojae031.portfolio.presentation.main
+package zojae031.portfolio.main
 
 class MainPresenter(private val view: MainContract.View) :
     MainContract.Presenter {

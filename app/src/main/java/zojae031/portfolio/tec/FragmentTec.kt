@@ -1,4 +1,4 @@
-package zojae031.portfolio.ui.tec
+package zojae031.portfolio.tec
 
 import android.os.Bundle
 import android.view.LayoutInflater

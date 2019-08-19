@@ -1,4 +1,4 @@
-package zojae031.portfolio.ui.main
+package zojae031.portfolio.main
 
 import android.os.Bundle
 import android.widget.Toast
@@ -8,8 +8,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_main.*
 import zojae031.portfolio.R
-import zojae031.portfolio.presentation.main.MainContract
-import zojae031.portfolio.presentation.main.MainPresenter
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
@@ -20,8 +18,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter.onCreate()
-
-        indicator.createDotPanel(3, R.drawable.indicator_off, R.drawable.indicator_on, 0)
 
         with(pager) {
             adapter = MainPagerAdapter(supportFragmentManager)
@@ -40,7 +36,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
             })
         }
-
+        indicator.createDotPanel(pager.adapter!!.count, R.drawable.indicator_off, R.drawable.indicator_on, 0)
     }
 
     override fun showToast(text: String) {
