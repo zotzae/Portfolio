@@ -1,5 +1,7 @@
 package zojae031.portfolio.data.datasource
 
-interface RemoteDataSource {
+import io.reactivex.Single
 
+interface RemoteDataSource {
+    fun getBasicInformation() : Single<String>
 }
