@@ -28,7 +28,7 @@ class ProjectAdapter : RecyclerView.Adapter<ProjectAdapter.Holder>(), ProjectAda
         lists.clear()
     }
 
-    override fun updateList(lists: List<CompetitionEntity>) {
+    override fun updateList(lists: Array<CompetitionEntity>) {
         this.lists.addAll(lists)
     }
 

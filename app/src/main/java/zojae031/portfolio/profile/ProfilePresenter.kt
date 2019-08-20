@@ -1,5 +1,6 @@
 package zojae031.portfolio.profile
 
+import com.google.gson.Gson
 import com.google.gson.JsonParser
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -18,13 +19,7 @@ class ProfilePresenter(private val view: ProfileContract.View, private val repos
             .getBasicInformation()
             .map { data ->
                 JsonParser().parse(data).asJsonObject.apply {
-                    return@map BasicEntity(
-                        get("name").asString,
-                        get("age").asString,
-                        get("university").asString,
-                        get("major").asString,
-                        get("military").asString
-                    )
+                    return@map Gson().fromJson(this,BasicEntity::class.java)
                 }
             }
             .doOnSuccess { entity ->

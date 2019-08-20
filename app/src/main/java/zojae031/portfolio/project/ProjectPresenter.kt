@@ -1,9 +1,11 @@
 package zojae031.portfolio.project
 
+import com.google.gson.Gson
 import com.google.gson.JsonParser
 import io.reactivex.android.schedulers.AndroidSchedulers
 import zojae031.portfolio.data.Repository
 import zojae031.portfolio.data.dao.CompetitionEntity
+
 
 class ProjectPresenter(private val view: ProjectContract.View, private val repository: Repository) :
     ProjectContract.Presenter {
@@ -23,19 +25,14 @@ class ProjectPresenter(private val view: ProjectContract.View, private val repos
         repository
             .getCompetitionInformation()
             .map { data ->
-                JsonParser().parse(data).asJsonObject.apply {
-                    return@map CompetitionEntity(
-                        get("image").asString,
-                        get("name").asString,
-                        get("prize").asString,
-                        get("text").asString,
-                        get("competition").asString
-                    )
+                JsonParser().parse(data).asJsonArray.apply {
+                    return@map Gson().fromJson(this, Array<CompetitionEntity>::class.java)
                 }
-            }.observeOn(AndroidSchedulers.mainThread())
+            }
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribe { enitity ->
                 adapterView.clearList()
-                adapterView.updateList(listOf(enitity as CompetitionEntity))
+                adapterView.updateList(enitity as Array<CompetitionEntity>)
                 adapterModel.notifyAdapter()
             }
     }
