@@ -19,7 +19,7 @@ class ProfilePresenter(private val view: ProfileContract.View, private val repos
             .getBasicInformation()
             .map { data ->
                 JsonParser().parse(data).asJsonObject.apply {
-                    return@map Gson().fromJson(this,BasicEntity::class.java)
+                    return@map Gson().fromJson(this, BasicEntity::class.java)
                 }
             }
             .doOnSuccess { entity ->
