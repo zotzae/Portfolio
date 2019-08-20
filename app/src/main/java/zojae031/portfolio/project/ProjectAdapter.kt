@@ -49,6 +49,8 @@ class ProjectAdapter : RecyclerView.Adapter<ProjectAdapter.Holder>(), ProjectAda
             Glide
                 .with(itemView.context)
                 .load(lists[position].image)
+                .error(R.drawable.ic_launcher_foreground)
+                .override(150,150)
                 .into(image)
             name.text = lists[position].name
             prize.text = lists[position].prize

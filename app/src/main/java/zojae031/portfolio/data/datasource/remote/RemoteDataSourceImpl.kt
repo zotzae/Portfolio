@@ -5,6 +5,7 @@ import io.reactivex.SingleOnSubscribe
 import io.reactivex.schedulers.Schedulers
 import org.jsoup.Connection
 import org.jsoup.Jsoup
+import java.lang.Exception
 
 object RemoteDataSourceImpl : RemoteDataSource {
     private val urlList = listOf(
@@ -25,13 +26,18 @@ object RemoteDataSourceImpl : RemoteDataSource {
 
     private fun parseUrl(idx: Int): Single<String> =
         Single.create(SingleOnSubscribe<String> {
-            Jsoup.connect(urlList[idx])
-                .method(Connection.Method.GET)
-                .execute()
-                .apply {
-                    isDirty[idx] = true
-                    it.onSuccess(this.parse().select(".d-block").select("p").text())
-                }
+            try {
+                Jsoup.connect(urlList[idx])
+                    .method(Connection.Method.GET)
+                    .execute()
+                    .apply {
+                        isDirty[idx] = true
+                        it.onSuccess(this.parse().select(".d-block").select("p").text())
+                    }
+            }catch (e : Exception){
+                it.onError(e)
+            }
+
 
         }).subscribeOn(Schedulers.io())
 
