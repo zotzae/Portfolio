@@ -1,46 +1,24 @@
 [
 {
-"image":"https://github.com/zojae031/Class-Electronic-Management-Application/blob/master/img/logo.png?raw=true",
-"name":"강의실 PC관리 어플리케이션",
-"prize":"(금상)",
-"text":"강의실 PC를 원격에서 효율적으로 관리하기 위한 어플리케이션",
-"competition":"세종대학교 제 6회 해커톤",
-"video":"https://youtu.be/HcrJrXeyrzE",
-"skills":"Rxjava, MVP, databinding",
-"git":"https://github.com/zojae031/Class-Electronic-Management-Application",
-"date":" 2019. 06. 25 ~ 2019. 06. 26"
+"image":"",
+"name":"테스트 1",
+"prize":"(대상)",
+"text":"앙기모찌이이이",
+"competition":"기모찌대학교",
+"video":"",
+"skills":"없다 그런거",
+"git":"",
+"date":" 2019-10-04 ~ 2019-10-05"
 },
 {
-"image":"https://github.com/zojae031/CapstoneDesign_Global_Lounge_Door_System/raw/master/img/logo.png",
-"name":"글로벌 라운지 출입문 시스템",
-"prize":"(우수상)",
-"text":"무분별한 외부인 출입을 제한하고 자동화 시스템으로 바꿈으로써 사용자의 데이터를 다양하게 활용 가능.",
-"competition":"창의설계 경진대회",
-"video":"https://youtu.be/JlXVhnjMgEU",
-"skills":"Rxjava, MVP, databinding, Retrofit2, RSA, Zxing, Altbeacon",
-"git":"https://github.com/zojae031/CapstoneDesign_Global_Lounge_Door_System",
-"date":" 2019. 03. 08 ~ 2019. 06. 07"
-},
-{
-"image":"https://github.com/zojae031/Smart_Leader/blob/master/SmartLeader/app/src/main/res/mipmap-hdpi/appicon.png?raw=true",
-"name":"Door Open Service",
-"prize":"(금상)",
-"text":"학교, 회사 등 사용자 인증이 필요한 블루투스/GPS 기반 프로젝트",
-"competition":"세종대학교 제 5회 해커톤 / 학술제",
-"video":"https://youtu.be/GYMIdvY9oxQ",
-"skills":"Callback, Handler, AltBeacon, Google map, Foreground Service, Accelerator",
-"git":"https://github.com/zojae031/DoorOpenService",
-"date":" 2018. 09. 03 ~ 2018. 12. 21"
-},
-{
-"image":"https://github.com/zojae031/2018_SeoulApp/raw/master/festival/app/src/main/res/drawable/app_icon.png",
-"name":"Culture in Seoul",
-"prize":"(예선)",
-"text":"다국어가 지원되는 서울시의 다양한 행사, 축제 정보를 장르, 지역별 보기 쉽게 보여주는 어플리케이션",
-"competition":"2018 서울시 앱공모전",
-"video":"https://youtu.be/YlsC67fKLos",
-"skills":"Papago api, Stt, GoogleMap, SQLite ",
-"git":"https://github.com/zojae031/2018_SeoulApp",
-"date":" 2018. 01. 16 ~ 2018. 09. 30"
+"image":"",
+"name":"테스트 2",
+"prize":"(없듬)",
+"text":"암기모지",
+"competition":"기모찌수상",
+"video":"",
+"skills":"끼뤀",
+"git":"",
+"date":"2000. 01. 01 ~ 2019. 10. 04"
 }
 ]
