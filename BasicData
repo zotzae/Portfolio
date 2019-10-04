@@ -1,9 +1,9 @@
 {
-"name" : "조재영",
-"age" : "1994-02-28",
-"university" : "세종대학교",
-"major" : "컴퓨터공학",
-"military" : "군필(육군병장 만기전역)",
-"hobby":"운동(마샬아츠)",
-"additional":"https://youtu.be/fGG1N-4t4hE"
+"name" : "테스트",
+"age" : "1994-01-01",
+"university" : "개발대학교",
+"major" : "안드로이드",
+"military" : "미필",
+"hobby":"개발",
+"additional":""
 }
