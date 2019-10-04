@@ -1,6 +1,6 @@
 [
 {
-"name":"kotlin",
+"name":"코틀린",
 "image":"https://user-images.githubusercontent.com/31091115/64504975-2e84c700-d30d-11e9-9741-2a5c76d58c28.png",
 "source": [
 {
@@ -13,7 +13,7 @@
 },
 
 {
-"name":"rxjava2",
+"name":"아렉스자바2",
 "image":"https://user-images.githubusercontent.com/31091115/64486041-1e181200-d263-11e9-9eb6-b4e6397e5d2a.png",
 "source": [
 {
