@@ -1,26 +1,26 @@
 [
 {
-"name":"코틀린",
-"image":"https://user-images.githubusercontent.com/31091115/64504975-2e84c700-d30d-11e9-9741-2a5c76d58c28.png",
+"name":"구글",
+"image":"https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
 "source": [
 {
-"data1":"",
-"data2":"https://github.com/zojae031/Portfolio/search?l=kotlin",
-"left":"",
-"right":"ExtraCode"
+"data1":"www.google.com",
+"data2":"",
+"left":"Google",
+"right":""
 }
 ]
 },
 
 {
-"name":"아렉스자바2",
-"image":"https://user-images.githubusercontent.com/31091115/64486041-1e181200-d263-11e9-9eb6-b4e6397e5d2a.png",
+"name":"네이버",
+"image":"http://blogfiles.naver.net/MjAxNzAyMjZfMjE0/MDAxNDg4MTE4MjYzMzc4.yS3vJAYEEfISwbcK1vpnoGCGTH8_X6OaN4Dxpkao_2kg.tyDVI_1yY8YN6-nH51dMbnJXLvgjZBmv_Fn5YCmHWnIg.PNG.dkssudehddh/16sus.png",
 "source": [
 {
-"data1":"https://github.com/zojae031/Portfolio/blob/master/app/src/main/java/zojae031/portfolio/data/datasource/remote/RemoteDataSourceImpl.kt",
-"data2":"https://github.com/zojae031/Portfolio/blob/master/app/src/main/java/zojae031/portfolio/project/ProjectPresenter.kt",
-"left":"Single",
-"right":"Subscriber"
+"data1":"www.naver.com",
+"data2":"",
+"left":"Naver",
+"right":""
 }
 ]
 }
