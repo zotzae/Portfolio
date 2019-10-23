@@ -23,5 +23,18 @@
 "right":""
 }
 ]
+},
+{
+"name":"카카오",
+"image":"https://t1.kakaocdn.net/kakaocorp/corp_thumbnail/Kakao.png",
+"source": [
+{
+"data1":"https://www.kakaocorp.com/",
+"data2":"",
+"left":"Kakao",
+"right":""
 }
+]
+}
+
 ]
